@@ -1,8 +1,18 @@
 import "../scss/main.scss";
 import "../index.html";
 import "../../node_modules/focus-visible/dist/focus-visible";
-import "../js/render-keys";
-import { GetKeys } from "./render-keys";
+import { renderKeys } from "./render-keys";
+import { VirtualKeyboard } from "./virtual-keyboard.class";
+
+window.addEventListener("DOMContentLoaded", () => {
+  new VirtualKeyboard(
+    document.getElementsByClassName("keyboard_keys")[0],
+    document.getElementById("text")
+  );
+  /*  document
+    .querySelector(".keyboard_keys")
+    .insertAdjacentHTML("beforeend", renderKeys("en", "toUperCase")); */
+});
 
 const KEY = document.querySelectorAll(".key");
 const SPACE_KEY = document.querySelector(".space_key");
@@ -64,5 +74,5 @@ window.addEventListener("keyup", function (event) {
     }, 200);
   }
 });
-GetKeys("en", "toLoweCase");
+
 // console.log(GetKeys("en", "toLoweCase"));

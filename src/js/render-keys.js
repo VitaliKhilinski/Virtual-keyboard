@@ -1,16 +1,36 @@
-import { getLetter } from "../js/languages";
+import { KEYBOARD_CONFIG } from "./keyboard-config";
 
-function renderKeys(language) {
-  return `<div class="key">${language}</div>`;
+export function renderKeys(language, shift) {
+  const keys = KEYBOARD_CONFIG[language][shift];
+
+  return keys
+    .map((row) => {
+      return `<div class="row">
+    ${row.map(renderKey).join("")}
+    </div>`;
+    })
+    .join("");
 }
 
-function GetKeys(language, keyCase) {
-  const KEYBOARD_KEYS = document.querySelector(".keyboard_keys");
-  const ROW = document.querySelectorAll(".row");
-  document.ROW.innerHTML = "";
-  const keysData = getLetter(language).keyCase.forEach((element) => {
-    KEYBOARD_KEYS.insertAdjacentHTML("beforeend", renderKeys(element));
-  });
+function renderKey(key) {
+  let className = "key";
+  switch (key) {
+    case "Backspace":
+      className = className + " backspace_key";
+      break;
+    case "Tab":
+      className = className + " tab_key";
+      break;
+    case "Caps Lock":
+      className = className + " caps_lock_key";
+      break;
+    case "enter_key":
+      className = className + " Enter";
+      break;
+    case "Shift":
+      className = className + " shift_left";
+      break;
+  }
+
+  return `<div class="${className}">${key}</div>`;
 }
-// function GetKeys(en[toUperCase])
-export { GetKeys };
