@@ -1,3 +1,128 @@
-body {
-    background-color: yellow;
+@import 'reset-css';
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
+
+body {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    transition: .2s;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+}
+
+.title{
+    margin-bottom: 20px;
+    font-size: 30px;
+    text-shadow: 0 0 1em rgb(70, 71, 71), 1px 1px 2px black; ; 
+}
+
+
+#text{
+    box-sizing: border-box;
+    max-width: 708px;
+    width: 100%;
+    height: 120px;
+    padding: 10px;
+    margin-bottom: 30px;
+    border: 2px solid ;
+}
+
+.keyboard_wrapper{
+    max-width: 708px;
+    width: 100%;
+    background-color: rgb(138, 135, 135);
+    position: relative;
+    padding: 5px;
+    border-radius: 10px;
+}
+
+
+@keyframes animated_btn {
+    0% {
+        
+        transform: scale(0);
+    }
+
+    100% {
+        
+        transform: scale(1);
+    }
+}
+
+.row {
+    display: flex;
+}
+
+.key {
+    width: 40px;
+    height: 40px;
+    background-color: #ffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+    border-radius: 5px;
+    box-shadow: 5px ;
+    margin: 4px;
+    transition: .2s;
+    flex: 0 01 auto;
+    text-align: center;
+    
+}
+
+.key:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    background-color: aquamarine;
+    cursor: pointer;
+}
+
+.key_active {
+    border-radius: 20%;
+    animation: animated_btn 0.3s ease;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+    background-color: aquamarine;
+}
+
+.key_move {
+ animation: animated_btn .5s forwards;
+}
+
+.key:active{
+    transform: translateY(3px);
+    border-radius: 50%;
+    animation: animated_btn 1s ease;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+    background-color: aquamarine;
+}
+
+.backspace_key{
+    width: 88px;
+}
+
+.tab_key, .caps_lock_key{
+    width: 55px;
+}
+
+ .shift_left{
+    width: 88px;
+    flex: 1 0 auto;
+}
+
+.enter_key, .shift_right{
+    flex: 1 0 auto;
+    width: 88px;
+}
+
+.space_key{
+    flex: 1 0 auto;
+}
+
