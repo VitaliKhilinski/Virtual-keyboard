@@ -38,7 +38,10 @@ const plugins = () => {
         collapseWhitespace: isProd,
       },
     }),
-    new CleanWebpackPlugin(),
+    new CleanWebpackPlugin({
+      cleanOnceBeforeBuildPatterns: ["**/*", "!.git"],
+    }),
+    ,
     new MiniCssExtractPlugin({
       filename: `./css/${filename("css")}`,
     }),
