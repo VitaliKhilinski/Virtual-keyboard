@@ -59,7 +59,11 @@ body {
 
 .row {
     display: flex;
+    flex-direction: row;
+    
 }
+
+
 
 .key {
     width: 40px;
@@ -70,12 +74,9 @@ body {
     align-items: center;
     flex-wrap: nowrap;
     border-radius: 5px;
-    box-shadow: 5px ;
     margin: 4px;
     transition: .2s;
-    flex: 0 01 auto;
     text-align: center;
-    
 }
 
 .key:hover {
@@ -86,7 +87,7 @@ body {
 }
 
 .key_active {
-    border-radius: 20%;
+    border-radius: 10px;
     animation: animated_btn 0.3s ease;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
     background-color: aquamarine;
@@ -99,9 +100,13 @@ body {
 .key:active{
     transform: translateY(3px);
     border-radius: 50%;
-    animation: animated_btn 1s ease;
+    // animation: animated_btn 1s ease;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
     background-color: aquamarine;
+}
+
+.info-text{
+    margin-top: 30px;
 }
 
 .backspace_key{
@@ -124,5 +129,9 @@ body {
 
 .space_key{
     flex: 1 0 auto;
+}
+
+.del_key{
+    width: 50px;
 }
 
